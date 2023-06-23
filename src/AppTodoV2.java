@@ -1,2 +1,17 @@
-package PACKAGE_NAME;public class AppTodoV2 {
+import repository.TodoListRepository;
+import repository.TodoListRepositoryImpl;
+import service.TodoListService;
+import service.TodoListServiceImpl;
+import view.TodoListView;
+
+public class AppTodoV2
+{
+    public static void main(String[] args)
+    {
+        TodoListRepository todoListRepository = new TodoListRepositoryImpl();
+        TodoListService todoListService = new TodoListServiceImpl(todoListRepository);
+        TodoListView todoListView = new TodoListView(todoListService);
+
+        todoListView.showTodoList();
+    }
 }
